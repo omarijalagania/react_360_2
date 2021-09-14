@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import ReactPannellum, { getConfig } from "react-pannellum";
+
+
 
 function App() {
+
+  const click = () => {
+    console.log(getConfig());
+  }
+  const config = {
+    autoRotate: -2,
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    
+    <div>
+       <ReactPannellum
+          id="1"
+          sceneId="firstScene"
+          imageSource="/image/PANO_20160611_163006.jpg"
+          config={config}
+        />
+        <div onClick={click}>Click me</div>
     </div>
   );
 }
