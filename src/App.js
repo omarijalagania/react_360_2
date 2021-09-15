@@ -31,7 +31,8 @@ function App() {
         yaw: 45,
         pitch: 45,
         type: "info",
-        sceneId: "1"
+        sceneId: "1",
+        text: "ნამეტანი შავი ღრუბლებია, უეჭველი მოწვიმს",
       },
       {
         yaw: 180,
