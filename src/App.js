@@ -10,7 +10,7 @@ function App() {
 
   const useStyles = makeStyles({
     root: {
-      maxWidth: 620,
+      maxWidth: 630,
       margin: "0 auto"
     },
   });
@@ -19,32 +19,29 @@ function App() {
     console.log(getConfig());
   }
   const config = {
-    autoRotate: -2,
     autoLoad: true,
-    pitch: 10,
-    yaw: 0,
-    hfov: 100,
+    scenes: {
+      circle: {
+          title: "Mason Circle",
+          hfov: 110,
+          pitch: -3,
+          yaw: 117,
+          type: "equirectangular",
+          panorama: "/image/arrow-up-circle-outline.svg",
+          
+      },
+      
+    },
     hotSpots: [
       {
-        id: "TOTO",
-        yaw: 45,
-        pitch: 45,
-        type: "info",
-        sceneId: "1"
-      },
-      {
-        yaw: 180,
-        pitch: 45,
-        type: "info",
-        URL: "/test",
-        attributes: {
-          target: "_self"
-        },
-        cssClass: "divIcon"
+          pitch: 2.1,
+          yaw: 102.9,
+          type: "scene",
+          text: "გადასვლა ბუჩკებში",
+          sceneId: "house"
       }
     ]
-    
-  };
+  }
   const classes = useStyles();
 
  
