@@ -24,6 +24,7 @@ function App() {
     pitch: 10,
     yaw: 0,
     hfov: 100,
+    compass: true,
     hotSpots: [
       {
         id: "TOTO",
