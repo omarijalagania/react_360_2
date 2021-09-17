@@ -3,6 +3,7 @@ import ReactPannellum, {
   getConfig,
   addHotSpot,
   addScene,
+  loadScene,
 } from "react-pannellum";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -23,18 +24,26 @@ function App() {
   };
   const config = {
     autoLoad: true,
-    default: {
-      firstscene: "firstscene",
+  };
+
+  const classes = useStyles();
+
+  const defaultImage = {
+    imageSource: "/image/PANO_20160611_163006.jpg",
+    equirectangularOptions: {},
+  };
+
+  addHotSpot(
+    {
+      pitch: 2.1,
+      yaw: 102.9,
+      type: "scene",
+      text: "გადასვლა ბუჩკებში",
     },
-    hotSpots: [
-      {
-        pitch: 2.1,
-        yaw: 102.9,
-        type: "scene",
-        text: "გადასვლა ბუჩკებში",
-        sceneId: "house",
-      },
-    ],
+    "house"
+  );
+
+  addScene({
     house: {
       title: "Spring House or Dairy",
       hfov: 110,
@@ -42,20 +51,19 @@ function App() {
       type: "equirectangular",
       panorama: "/image/sebastian-astecker-NaEDImEQXVw-unsplash.jpg",
     },
-  };
+  });
 
-  const classes = useStyles();
+  loadScene("house");
 
   return (
     <Card className={classes.root}>
       <CardContent>
         <ReactPannellum
           id="1"
-          sceneId="firstscene"
-          imageSource="/image/PANO_20160611_163006.jpg"
+          sceneId="house"
           config={config}
+          {...defaultImage}
         />
-
         <div onClick={click}>Click me for Properties</div>
         <Typography variant="body2" color="textSecondary" component="p">
           Lizards are a widespread group of squamate reptiles, with over 6,000
