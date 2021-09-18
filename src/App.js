@@ -22,9 +22,42 @@ function App() {
   const click = () => {
     console.log(getConfig());
   };
+
+  const house = {
+    house: {
+      pitch: 2.1,
+      yaw: 102.9,
+      type: "equirectangular",
+      text: "გადასვლა ბუჩკებში",
+      panorama: "/image/sebastian-astecker-NaEDImEQXVw-unsplash.jpg",
+    },
+  };
+
   const config = {
     autoLoad: true,
+    hotSpots: [
+      {
+        pitch: 2.1,
+        yaw: 102.9,
+        type: "scene",
+        text: "გადასვლა ბუჩკებში",
+        sceneId: "house",
+      },
+    ],
+    // scenes: {
+    //   house: {
+    //     pitch: 2.1,
+    //     yaw: 102.9,
+    //     type: "scene",
+    //     text: "გადასვლა ბუჩკებში",
+    //     panorama: "/image/sebastian-astecker-NaEDImEQXVw-unsplash.jpg",
+    //   },
+    // },
   };
+
+  addScene("house", house);
+
+  loadScene("house");
 
   const classes = useStyles();
 
@@ -33,34 +66,17 @@ function App() {
     equirectangularOptions: {},
   };
 
-  addHotSpot(
-    {
-      pitch: 2.1,
-      yaw: 102.9,
-      type: "scene",
-      text: "გადასვლა ბუჩკებში",
-    },
-    "house"
-  );
-
-  addScene({
-    house: {
-      title: "Spring House or Dairy",
-      hfov: 110,
-      yaw: 5,
-      type: "equirectangular",
-      panorama: "/image/sebastian-astecker-NaEDImEQXVw-unsplash.jpg",
-    },
-  });
-
-  loadScene("house");
+  const secondImage = {
+    imageSource: "/image/sebastian-astecker-NaEDImEQXVw-unsplash.jpg",
+    equirectangularOptions: {},
+  };
 
   return (
     <Card className={classes.root}>
       <CardContent>
         <ReactPannellum
           id="1"
-          sceneId="house"
+          sceneId="firstscene"
           config={config}
           {...defaultImage}
         />
